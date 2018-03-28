@@ -5,6 +5,8 @@ fi
 HISTFILESIZE=1000000
 HISTSIZE=1000000
 
+export PS1="\W \$"
+
 export TERM=xterm
 
 reacttemplate (){
