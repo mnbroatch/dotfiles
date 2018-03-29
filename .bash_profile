@@ -5,7 +5,7 @@ fi
 HISTFILESIZE=1000000
 HISTSIZE=1000000
 
-export PS1="\W \$ "
+export PS1="\$PWD \$ "
 
 export TERM=xterm
 
