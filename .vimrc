@@ -1,25 +1,28 @@
-set autoread
-au FocusGained,BufEnter * :silent! !
-
-set viminfo='50
 set nocompatible
+
+filetype plugin indent on
+syntax on
+
 set expandtab
 set clipboard=unnamedplus
 set wrap
+set viminfo='50
 
-colorscheme efficient
-filetype plugin indent on
-syntax on
+set autoread
+au FocusGained,BufEnter * :silent! !
+set nomore
+set hidden
+
+let @l='^iconsole.log(''^[ly$$a'',^R")^[^'
 
 let g:netrw_liststyle = 3
 let g:html_indent_inctags = "li" 
 let g:ctrlp_max_files = 0
 let g:ctrlp_cmd = 'CtrlPMRU'
 let g:ale_javascript_eslint_use_global = 1
-let g:ale_linters = {'javascript': ['eslint']}
-let g:ale_fixers = {'javascript': ['eslint']}
+let g:ale_linters = {'javascript': ['eslint', 'tsserver']}
+let g:ale_fixers = {'javascript': ['eslint', 'tsserver']}
 
-set nomore
 set foldmethod=indent
 set foldlevel=99
 set tabstop=2
@@ -29,6 +32,8 @@ set number
 set iskeyword+=\-
 set dir=~/.vim/backups/
 set tags=./tags,tags;$HOME
+
+nmap <silent> <silent>gd :ALEGoToDefinition<cr>
 
 iabbrev <css> <link rel="stylesheet" type="text/css" href="style.css">
 iabbrev <js> <script src="main.js"></script>
