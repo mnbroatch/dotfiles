@@ -13,7 +13,7 @@ au FocusGained,BufEnter * :silent! !
 set nomore
 set hidden
 
-let @l='^iconsole.log(''^[ly$$a'',^R")^[^'
+let @l="^y$iconsole.log('$a', pa)"
 
 let g:netrw_liststyle = 3
 let g:html_indent_inctags = "li" 
@@ -22,6 +22,10 @@ let g:ctrlp_cmd = 'CtrlPMRU'
 let g:ale_javascript_eslint_use_global = 1
 let g:ale_linters = {'javascript': ['eslint', 'tsserver']}
 let g:ale_fixers = {'javascript': ['eslint', 'tsserver']}
+
+let g:ale_pattern_options = {
+\   '.*/stories/.*\.js$': {'ale_enabled': 0},
+\}
 
 set foldmethod=indent
 set foldlevel=99
