@@ -1,79 +1,38 @@
-set nocompatible
-
 filetype plugin indent on
 syntax on
-
-set expandtab
-set clipboard=unnamedplus
-set wrap
-set viminfo='50
-
-set autoread
-au FocusGained,BufEnter * :silent! !
-set nomore
+colorscheme oceanic-next
 set hidden
-
-let @l="^y$iconsole.log('$a', pa)"
-
-let g:netrw_liststyle = 3
-let g:html_indent_inctags = "li" 
-let g:ctrlp_max_files = 0
-let g:ctrlp_cmd = 'CtrlPMRU'
-let g:ale_javascript_eslint_use_global = 1
-let g:ale_linters = {'javascript': ['eslint', 'tsserver']}
-let g:ale_fixers = {'javascript': ['eslint', 'tsserver']}
-
-let g:ale_pattern_options = {
-\   '.*/stories/.*\.js$': {'ale_enabled': 0},
-\}
-
-set foldmethod=indent
-set foldlevel=99
-set tabstop=2
-set shiftwidth=2
-set backspace=start
 set number
-set iskeyword+=\-
-set dir=~/.vim/backups/
-set tags=./tags,tags;$HOME
 
-nmap <silent> <silent>gd :ALEGoToDefinition<cr>
+set shiftwidth=2
+set softtabstop=2
+set expandtab
 
-iabbrev <css> <link rel="stylesheet" type="text/css" href="style.css">
-iabbrev <js> <script src="main.js"></script>
+set clipboard=unnamedplus
+set suffixesadd=.js
 
-" use u to recover from accidental c-u or c-w
-inoremap <c-u> <c-g>u<c-u>
-inoremap <c-w> <c-g>u<c-w>
-
-"indent all with =-
+noremap "" "_
 nnoremap =- mzgg=G`zz.
 
-"switch fold functions
-noremap zA za
-noremap za zA
+" WSL yank support
+let s:clip = '/mnt/c/Windows/System32/clip.exe'
+if executable(s:clip)
+    augroup WSLYank
+        autocmd!
+        autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
+    augroup END
+endif
 
-let g:ctrlp_custom_ignore = {
-  \ 'dir': '\v[\/](\.git|node_modules|\.sass-cache|bin)$',
-  \ }
-let g:ctrlp_show_hidden = 1
+let g:ale_fixers = {}
+let g:ale_fixers.javascript = ['eslint']
+nmap <silent> <silent>gd :ALEGoToDefinition<cr>
 
-nnoremap <leader>. :CtrlPTag<cr>
-nnoremap <leader>p :CtrlPMRU<cr>
+" Custom ignore for ctrl-p
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
-"make C-w,C-f go to file under cursor in node in split mode
-autocmd User Node
-			\ if &filetype == "javascript" |
-			\   nmap <buffer> <C-w>f <Plug>NodeVSplitGotoFile |
-			\   nmap <buffer> <C-w><C-f> <Plug>NodeVSplitGotoFile |
-			\ endif
-
-nnoremap "" "_
-
-nnoremap > >>
-nnoremap < <<
-
-map <leader>s ysiw
-map <leader>S ysiW
-
-let g:jsx_ext_required = 0
+" Load all plugins now.
+" Plugins need to be added to runtimepath before helptags can be generated.
+packloadall
+" Load all of the helptags now, after plugins have been loaded.
+" All messages and errors will be ignored.
+silent! helptags ALL
