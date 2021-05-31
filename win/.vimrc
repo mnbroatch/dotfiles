@@ -1,6 +1,6 @@
 filetype plugin indent on
 syntax on
-colorscheme oceanic-next
+colorscheme OceanicNext
 set hidden
 set number
 
@@ -36,4 +36,3 @@ packloadall
 " Load all of the helptags now, after plugins have been loaded.
 " All messages and errors will be ignored.
 silent! helptags ALL
-
