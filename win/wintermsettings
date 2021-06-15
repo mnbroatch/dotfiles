@@ -80,11 +80,11 @@
         },
         {
           "command": "scrollUpPage",
-          "keys": "ctrl+alt+k"
+          "keys": "ctrl+shift+k"
         },
         {
           "command": "scrollDownPage",
-          "keys": "ctrl+alt+j"
+          "keys": "ctrl+shift+j"
         },
         {
             "command": "nextTab",
