@@ -1,21 +1,19 @@
-filetype plugin indent on
 syntax on
-colorscheme oceanic-next
+set smartindent
 set hidden
 set number
+set noincsearch
+set nohlsearch
 
 set shiftwidth=2
 set softtabstop=2
 set expandtab
 
-set clipboard=unnamedplus
+set clipboard=unnamed
 set suffixesadd=.js
 
-noremap "" "_
-nnoremap =- mzgg=G`zz.
-
-nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
-nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
+" magic typscript fix for mac
+set re=2
 
 " WSL yank support
 let s:clip = '/mnt/c/Windows/System32/clip.exe'
@@ -26,16 +24,15 @@ if executable(s:clip)
     augroup END
 endif
 
+let g:ale_virtualtext_cursor=0
 let g:ale_fixers = {}
 let g:ale_fixers.javascript = ['eslint']
+let g:ale_completion_enabled = 1
 nmap <silent> <silent>gd :ALEGoToDefinition<cr>
 
-" Custom ignore for ctrl-p
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git|built\'
 
-" Load all plugins now.
-" Plugins need to be added to runtimepath before helptags can be generated.
-packloadall
-" Load all of the helptags now, after plugins have been loaded.
-" All messages and errors will be ignored.
+" packloadall
 silent! helptags ALL
+
+let mapleader = " "

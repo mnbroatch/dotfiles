@@ -1,3 +1,5 @@
+NODE_OPTIONS=--disable-warning=ExperimentalWarning
+
 set -o vi 
 
 if [ -f /etc/bash_completion ]; then
@@ -16,8 +18,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 alias wintermsettings="vim /mnt/c/Users/Flanders/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
-
-alias meg="cd ~/Programming/megagame"
+alias vim="nvim"
 
 source ~/paths.sh
 
