@@ -14,9 +14,20 @@ let mapleader = " "
 lua require('config/lazy')
 lua require('config/lsp')
 
-nmap <silent> <silent>gd :ALEGoToDefinition<cr>
+" let g:clipboard = {
+"     \   'name': 'WslClipboard',
+"     \   'copy': {
+"     \      '+': 'clip.exe',
+"     \      '*': 'clip.exe',
+"     \    },
+"     \   'paste': {
+"     \      '+': 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+"     \      '*': 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+"     \   },
+"     \   'cache_enabled': 0,
+"     \ }
 
-" crazy that avante leaves stale TODOs, how annoying
+nmap <silent> <silent>gd :ALEGoToDefinition<cr>
 nnoremap <silent> <leader>aD :call system('rm -rf ~/.local/state/nvim/avante')<CR>
 
 set clipboard=unnamed
