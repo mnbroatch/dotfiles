@@ -1,11 +1,15 @@
 
+Windows:
 ```
-windows:
 
 Terminal:
 winget search Microsoft.PowerShell
 winget install --id Microsoft.PowerShell --source winget
+
+Powershell:
+New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Keyboard Layout" -Name "Scancode Map" -PropertyType Binary -Value ([byte[]](0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x03,0x00,0x00,0x00,0x01,0x00,0x3a,0x00,0x3a,0x00,0x01,0x00,0x00,0x00,0x00,0x00)) -Force
 wsl --install
+
 right click title bar -> settings
 	- default profile: Ubuntu
 
