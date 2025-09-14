@@ -1,5 +1,4 @@
 {
-    "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
     "actions": [],
     "alwaysShowTabs": false,
@@ -82,10 +81,32 @@
             {
                 "commandline": "wsl.exe -d Ubuntu",
                 "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
-                "hidden": true,
                 "name": "Ubuntu",
                 "source": "Microsoft.WSL",
                 "startingDirectory": "~"
+            },
+            {
+                "guid": "{12345678-1234-1234-1234-123456789001}",
+                "name": "Desktop1 Dev Terminal",
+                "commandline": "wsl.exe -d Ubuntu -- ~/desktop1-startup.sh",
+                "tabTitle": "Desktop1",
+                "source": "Microsoft.WSL"
+            },
+            {
+                "guid": "{12345678-1234-1234-1234-123456789005}",
+                "name": "Desktop5 Left Terminal", 
+                "commandline": "wsl.exe -d Ubuntu -- bash -i ~/desktop5-left-startup.sh",
+                "tabTitle": "Desktop5-Left",
+		"source": "Microsoft.WSL"
+
+            },
+            {
+                "guid": "{12345678-1234-1234-1234-123456789006}",
+                "name": "Desktop5 Right Terminal",
+                "commandline": "wsl.exe -d Ubuntu -- bash -i ~/desktop5-right-startup.sh",
+                "tabTitle": "Desktop5-Right",
+		"source": "Microsoft.WSL"
+
             }
         ]
     },
