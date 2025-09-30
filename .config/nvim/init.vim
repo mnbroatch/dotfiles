@@ -13,6 +13,7 @@ let mapleader = " "
 
 lua require('config/lazy')
 lua require('config/lsp')
+lua require('config/diagnostics')
 
 " let g:clipboard = {
 "     \   'name': 'WslClipboard',
@@ -27,7 +28,6 @@ lua require('config/lsp')
 "     \   'cache_enabled': 0,
 "     \ }
 
-nmap <silent> <silent>gd :ALEGoToDefinition<cr>
 nnoremap <silent> <leader>aD :call system('rm -rf ~/.local/state/nvim/avante')<CR>
 
 set clipboard=unnamed
@@ -35,3 +35,7 @@ set suffixesadd=.js
 
 " magic typscript fix for mac
 set re=2
+
+inoremap <C-Space> <C-x><C-o>
+set completeopt=menuone,noinsert,noselect
+

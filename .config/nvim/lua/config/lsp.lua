@@ -1,17 +1,23 @@
--- Create an event handler for the FileType autocommand
+local function on_attach(client, bufnr)
+  local opts = { noremap = true, silent = true, buffer = bufnr }
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+end
+
 vim.api.nvim_create_autocmd('FileType', {
-  -- This handler will fire when the buffer's 'filetype' is "python"
-  pattern = 'javascript',
+  pattern = { 'javascript', 'typescript' },
   callback = function(args)
+    local buf = args.buf
+    local root = vim.fs.dirname(vim.fs.find({ 'tsconfig.json', 'package.json' }, { upward = true })[1])
+    if not root then
+      root = vim.fn.getcwd()
+    end
+
     vim.lsp.start({
-      name = 'typescript-language-server',
-      cmd = {'typescript-language-server', '--stdio'},
-      root_dir = vim.fs.dirname(vim.fs.find({'tsconfig.json', 'package.json'}, { upward = true })[1]),
-      -- Set the "root directory" to the parent directory of the file in the
-      -- current buffer (`args.buf`) that contains either a "setup.py" or a
-      -- "pyproject.toml" file. Files that share a root directory will reuse
-      -- the connection to the same LSP server.
-      -- root_dir = vim.fs.root(args.buf, {'setup.py', 'pyproject.toml'}),
+      name = 'tsserver',
+      cmd = { 'typescript-language-server', '--stdio' },
+      root_dir = root,
+      on_attach = on_attach,
+      bufnr = buf,
     })
   end,
 })

@@ -24,6 +24,7 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 Restart terminal
 
 nvm install --lts
+npm install -g typescript-language-server typescript
 
 sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo apt update
@@ -49,3 +50,4 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 nvm install --lts
 ```
 
+also includes a very hacky powershell script for getting my workspace set up how I likes it

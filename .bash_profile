@@ -1,4 +1,5 @@
 NODE_OPTIONS=--disable-warning=ExperimentalWarning
+EDITOR=nvim
 
 source ~/.claude-api-key
 

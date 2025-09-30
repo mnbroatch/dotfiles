@@ -1,5 +1,6 @@
 return {
   "dense-analysis/ale",
+  enabled = false,
   init = function () 
     vim.g.ale_virtualtext_cursor = 0
     vim.g.ale_fixers = {
