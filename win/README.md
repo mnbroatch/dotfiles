@@ -43,6 +43,9 @@ git config --global user.email "mnbroatch@gmail.com"
 git config --global user.name "Matthew Broatch"
 git config --global core.excludesFile ~/.gitignore
 
+vim
+:e $MYVIMRC
+uncomment clipboard section
 ```
 
 also includes a very hacky powershell script for getting my workspace set up how I likes it
