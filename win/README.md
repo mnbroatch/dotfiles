@@ -41,13 +41,11 @@ cp -r ~/Programming/dotfiles/. ~
 rm -rf ~/.git ~/README ~/win
 git config --global user.email "mnbroatch@gmail.com"
 git config --global user.name "Matthew Broatch"
-git config --global core.excludesFile ~/.gitignore *TODO: ADD TO DOTFILES REPO*
+git config --global core.excludesFile ~/.gitignore
 
 vim
 :Lazy update
 
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-nvm install --lts
 ```
 
 also includes a very hacky powershell script for getting my workspace set up how I likes it
