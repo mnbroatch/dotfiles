@@ -32,7 +32,7 @@ sudo apt install neovim
 
 get ssh key, place in ~/.ssh
 get claude-api-key, place in ~
-chmod 600 ~/.ssh/id_ed123456
+chmod 600 ~/.ssh/id_ed123456 (change number)
 
 mkdir ~/.Programming
 cd ~/.Programming
